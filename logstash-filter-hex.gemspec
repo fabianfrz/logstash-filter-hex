@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   s.files = Dir['lib/**/*','spec/**/*','vendor/**/*','*.gemspec','*.md','Gemfile','LICENSE']
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.metadata = { "logstash_plugin" => "true", "logstash_group" => "filter" }
+  s.cert_chain  = ['certs/fabianfrz.pem']
+  s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
 
   s.add_runtime_dependency "logstash-core", ">= 1.0"
   s.add_development_dependency 'logstash-devutils', '~> 1.1'
